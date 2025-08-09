@@ -430,22 +430,22 @@ section h2::after {
 
 .speaker-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem 1rem;
 }
 
 .speaker-card {
     position: relative;
     background: transparent;
-    border-radius: 14px;
+    border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 8px 18px rgba(0,0,0,0.12);
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.10);
+    transition: transform 0.22s ease, box-shadow 0.22s ease;
 }
 
 .speaker-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 14px 26px rgba(0,0,0,0.18);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 22px rgba(0,0,0,0.16);
 }
 
 .speaker-photo {
@@ -471,16 +471,16 @@ section h2::after {
     left: 0;
     right: 0;
     bottom: 0;
-    padding: 0.9rem 1rem 1rem;
-    background: linear-gradient( to top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.35) 55%, rgba(0,0,0,0.0) 100% );
+    padding: 0.6rem 0.75rem 0.75rem;
+    background: linear-gradient( to top, rgba(0,0,0,0.60) 0%, rgba(0,0,0,0.30) 55%, rgba(0,0,0,0.0) 100% );
     color: #fff;
     text-align: left;
 }
 
 .speaker-info h4 {
     font-family: var(--font-heading);
-    font-size: 1.05rem;
-    line-height: 1.15;
+    font-size: 0.95rem;
+    line-height: 1.2;
     color: #fff;
     margin: 0 0 0.15rem 0;
 }
@@ -488,7 +488,7 @@ section h2::after {
 .speaker-info p {
     color: rgba(255,255,255,0.9);
     margin: 0;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     font-style: normal;
 }
 
