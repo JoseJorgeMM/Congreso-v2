@@ -175,72 +175,142 @@
                 <button class="tab-link" onclick="openDay(event, 'Day2')"><i class="fa-regular fa-calendar-check"></i> Viernes, 5 de Septiembre</button>
             </div>
 
+            <!-- Contenido del Jueves -->
             <div id="Day1" class="tab-content hidden-element" style="display: block;">
-                <table class="schedule-table">
-                    <thead>
-                        <tr>
-                            <th>Hora</th>
-                            <th>Actividad</th>
-                            <th class="type-column">Tipo</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td data-label="Hora">7:30 am</td>
-                            <td data-label="Actividad">Inscripción y reconocimiento</td>
-                            <td data-label="Tipo"><span class="activity-type registration">Recepción</span></td>
-                        </tr>
-                        <tr>
-                            <td data-label="Hora">8:45 am</td>
-                            <td data-label="Actividad">Taller de escritura creativa</td>
-                            <td data-label="Tipo"><span class="activity-type workshop">Taller</span></td>
-                        </tr>
-                        <tr>
-                            <td data-label="Hora">10:15 am</td>
-                            <td data-label="Actividad">Conversatorio Inaugural</td>
-                            <td data-label="Tipo"><span class="activity-type conference">Conversatorio</span></td>
-                        </tr>
-                        <tr>
-                            <td data-label="Hora">2:00 pm</td>
-                            <td data-label="Actividad">Instalación de conversatorios y mesas de trabajo</td>
-                            <td data-label="Tipo"><span class="activity-type main-event">Mesas de Trabajo</span></td>
-                        </tr>
-                    </tbody>
-                </table>
+                <h3 class="day-subtitle">Jueves 4 de septiembre de 2025 - 1er Día</h3>
+
+                <!-- Agenda de la Mañana -->
+                <div class="schedule-session">
+                    <h4>Mañana</h4>
+                    <table class="schedule-table">
+                        <thead>
+                            <tr>
+                                <th class="time-col">Horario</th>
+                                <th class="event-col">Momento</th>
+                                <th class="speaker-col">Responsable(s)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td data-label="Horario">7:30 am</td>
+                                <td data-label="Momento">Inscripción y reconocimiento</td>
+                                <td data-label="Responsable(s)">Operador logístico</td>
+                            </tr>
+                            <tr>
+                                <td data-label="Horario">8:00 am</td>
+                                <td data-label="Momento">Instalación y Bienvenida cultural</td>
+                                <td data-label="Responsable(s)"></td>
+                            </tr>
+                            <tr>
+                                <td data-label="Horario">8:45 am</td>
+                                <td data-label="Momento">Taller de escritura creativa</td>
+                                <td data-label="Responsable(s)">
+                                    <strong>Ponente:</strong> Mg. Flavia Affranchino (Arg.)<br>
+                                    <strong>Moderadoras:</strong> Mg. Ana María Barragán, Esp. Doralba Bedoya Amaya
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-label="Horario">9:45 am</td>
+                                <td data-label="Momento">Café</td>
+                                <td data-label="Responsable(s)"></td>
+                            </tr>
+                            <tr>
+                                <td data-label="Horario">10:15 am</td>
+                                <td data-label="Momento">Conversatorio inaugural</td>
+                                <td data-label="Responsable(s)">
+                                    <strong>Ponentes:</strong> Mg. Carolina Ferreira (Arg), Dra. Adriana Arbeláez Barrero (Col), Dr. Diofanto Arce Tovar (Col.), Dr. Edwin Alejandro Henao Mejía (Col)<br>
+                                    <strong>Moderadora:</strong> Dra. Dora Niedzwiecki (Arg)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-label="Horario">12:00 M</td>
+                                <td data-label="Momento">Picnic - Almuerzo</td>
+                                <td data-label="Responsable(s)"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Agenda de la Tarde -->
+                <div class="schedule-session">
+                    <h4>Tarde: Mesas de Trabajo</h4>
+                    <div class="work-tables-grid">
+                        <!-- Mesa de trabajo 1 -->
+                        <div class="work-table-card">
+                            <h5>Mesa de trabajo 1</h5>
+                            <p class="table-title">Saberes que conversan sobre Los territorios y contextos del directivo docente</p>
+                            <p><strong>Moderador:</strong> Dr(o). Fredy Alonso Villa</p>
+                            <p><strong>Acompañamiento académico:</strong> Dra. Dora Niedzwiecki (Arg), Dra. Luz Angela Hernández (Col)</p>
+                            <ul class="table-schedule">
+                                <li><strong>2:00 pm:</strong> Instalación de conversatorios y mesas de trabajo</li>
+                                <li><strong>3:00 pm:</strong> Taller de Escritura</li>
+                                <li><strong>3:20 pm:</strong> Presentación 1</li>
+                                <li><strong>3:40 pm:</strong> Presentación 2</li>
+                                <li><strong>4:00 pm:</strong> Presentación 3</li>
+                                <li><strong>4:20 pm:</strong> Café</li>
+                                <li><strong>4:50 pm:</strong> Trabajo de escritura creativa</li>
+                                <li><strong>6:00 pm:</strong> Cierre</li>
+                            </ul>
+                        </div>
+                        <!-- Mesa de trabajo 2 -->
+                        <div class="work-table-card">
+                            <h5>Mesa de trabajo 2</h5>
+                            <p class="table-title">Saberes que conversan sobre habitar la escuela con dignidad</p>
+                            <p><strong>Moderador:</strong> Dr(o). John Fredy Corrales</p>
+                            <p><strong>Acompañamiento académico:</strong> Mg. Carolina Ferreira (Arg), Dr. Edwin Alejandro Henao Mejía (Col)</p>
+                            <ul class="table-schedule">
+                                <li><strong>2:00 pm:</strong> Instalación de conversatorios y mesas de trabajo</li>
+                                <li><strong>3:00 pm:</strong> Presentación 1</li>
+                                <li><strong>3:20 pm:</strong> Taller de Escritura</li>
+                                <li><strong>3:40 pm:</strong> Presentación 2</li>
+                                <li><strong>4:00 pm:</strong> Presentación 3</li>
+                                <li><strong>4:20 pm:</strong> Café</li>
+                                <li><strong>4:50 pm:</strong> Trabajo de escritura creativa</li>
+                                <li><strong>6:00 pm:</strong> Cierre</li>
+                            </ul>
+                        </div>
+                        <!-- Mesa de trabajo 3 -->
+                        <div class="work-table-card">
+                            <h5>Mesa de trabajo 3</h5>
+                            <p class="table-title">Saberes que conversan sobre currículo y proyecto educativo para la libertad</p>
+                            <p><strong>Moderador:</strong> Dr(o). Bladimir</p>
+                            <p><strong>Acompañamiento académico:</strong> Dr. Diofanto Arce Tovar (Col), Dra. Adriana Arbeláez Barrero (Col)</p>
+                            <ul class="table-schedule">
+                                <li><strong>2:00 pm:</strong> Instalación de conversatorios y mesas de trabajo</li>
+                                <li><strong>3:00 pm:</strong> Presentación 1</li>
+                                <li><strong>3:20 pm:</strong> Presentación 2</li>
+                                <li><strong>3:40 pm:</strong> Taller de Escritura</li>
+                                <li><strong>4:00 pm:</strong> Presentación 3</li>
+                                <li><strong>4:20 pm:</strong> Café</li>
+                                <li><strong>4:50 pm:</strong> Trabajo de escritura creativa</li>
+                                <li><strong>6:00 pm:</strong> Cierre</li>
+                            </ul>
+                        </div>
+                        <!-- Mesa de trabajo 4 (Virtual) -->
+                        <div class="work-table-card">
+                            <h5>Mesa de trabajo 4 (Virtual)</h5>
+                            <p class="table-title">Saberes que conversan sobre hacer posible la escuela</p>
+                            <p><strong>Moderador:</strong> Esp. Alirio Restrepo Arboleda</p>
+                            <p><strong>Acompañamiento académico:</strong> Dra. Fabiola Escobar (Ven), Mg. Nataly Restrepo y Nilsa Benitez (Col), Monze Valdés (Mex), Dr(o). Martín Felipe Uribe (Col)</p>
+                            <ul class="table-schedule">
+                                <li><strong>2:00 pm:</strong> Instalación de conversatorios y mesas de trabajo</li>
+                                <li><strong>3:00 pm:</strong> Presentación 1</li>
+                                <li><strong>3:20 pm:</strong> Presentación 2</li>
+                                <li><strong>3:40 pm:</strong> Presentación 3</li>
+                                <li><strong>4:00 pm:</strong> Taller de Escritura</li>
+                                <li><strong>4:20 pm:</strong> Café</li>
+                                <li><strong>4:50 pm:</strong> Trabajo de escritura creativa</li>
+                                <li><strong>6:00 pm:</strong> Cierre</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
 
+            <!-- Contenido del Viernes (Placeholder) -->
             <div id="Day2" class="tab-content hidden-element">
-                 <table class="schedule-table">
-                    <thead>
-                        <tr>
-                            <th>Hora</th>
-                            <th>Actividad</th>
-                            <th class="type-column">Tipo</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td data-label="Hora">2:00 pm</td>
-                            <td data-label="Actividad">Trabajo de escritura creativa, tendido y conclusiones</td>
-                            <td data-label="Tipo"><span class="activity-type workshop">Taller</span></td>
-                        </tr>
-                        <tr>
-                            <td data-label="Hora">4:30 pm</td>
-                            <td data-label="Actividad">Planaria de conclusiones / concertaciones de las 4 mesas</td>
-                            <td data-label="Tipo"><span class="activity-type conference">Plenaria</span></td>
-                        </tr>
-                        <tr>
-                            <td data-label="Hora">5:30 pm</td>
-                            <td data-label="Actividad">Declaratoria final - Comité científico y CEIDEA</td>
-                            <td data-label="Tipo"><span class="activity-type main-event">Declaratoria</span></td>
-                        </tr>
-                        <tr>
-                            <td data-label="Hora">5:45 pm</td>
-                            <td data-label="Actividad">Clausura cultural</td>
-                            <td data-label="Tipo"><span class="activity-type closing">Clausura</span></td>
-                        </tr>
-                    </tbody>
-                </table>
+                <h3 class="day-subtitle">Viernes 5 de septiembre de 2025 - 2do Día</h3>
+                <p>El programa para este día estará disponible próximamente.</p>
             </div>
         </section>
 
