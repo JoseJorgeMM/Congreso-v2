@@ -1,0 +1,178 @@
+/* --- Responsive Design for I Congreso Internacional de Directivos Docentes --- */
+
+/* Apply styles for screens smaller than 992px (tablets and mobiles) */
+@media (max-width: 992px) {
+    /* --- Header & Navigation --- */
+    /* Hide the desktop navigation links */
+    #main-header .nav-links {
+        display: none;
+    }
+
+    /* Show the mobile menu button (hamburger) */
+    .mobile-menu-button {
+        display: block;
+        background: none;
+        border: none;
+        color: var(--primary-color);
+        font-size: 1.8rem;
+        cursor: pointer;
+    }
+
+    /* Style the mobile navigation container */
+    #main-nav {
+        display: none; /* Hidden by default */
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--white-color);
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        z-index: 1000;
+    }
+
+    /* Show the mobile navigation when active */
+    #main-nav.active {
+        display: block;
+    }
+
+    /* Stack the navigation links vertically */
+    #main-nav .nav-links {
+        display: flex;
+        flex-direction: column;
+        padding: 1rem 0;
+    }
+
+    #main-nav .nav-links li {
+        margin: 0;
+        text-align: center;
+    }
+
+    #main-nav .nav-links a {
+        display: block;
+        padding: 1rem;
+        border-bottom: 1px solid #f0f0f0;
+    }
+
+    #main-nav .nav-links a::after {
+        display: none; /* Hide the animated underline */
+    }
+
+    /* Hide the 'Inscríbete' button from the header */
+    .header-cta {
+        display: none;
+    }
+
+    /* --- Hero Section --- */
+    #hero {
+        height: auto;
+        min-height: 80vh;
+        background-attachment: scroll; /* Disable fixed background on mobile to prevent issues */
+        padding: 8rem 0 4rem 0;
+    }
+
+    #hero h1 { font-size: 2.5rem; }
+    #hero h2 { font-size: 1.2rem; }
+
+    /* --- Schedule Tables --- */
+    .schedule-table {
+        border: none;
+        box-shadow: none;
+    }
+    
+    .schedule-table thead {
+        display: none; /* Hide the table header */
+    }
+
+    .schedule-table, 
+    .schedule-table tbody, 
+    .schedule-table tr, 
+    .schedule-table td {
+        display: block;
+        width: 100%;
+    }
+
+    .schedule-table tr {
+        margin-bottom: 1.5rem;
+        border: 1px solid #eee;
+        border-radius: 8px;
+        padding: 1rem;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    .schedule-table td {
+        padding: 0.5rem 0;
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: space-between; /* Align label and value */
+        text-align: right;
+    }
+
+    .schedule-table td::before {
+        content: attr(data-label); /* Use data-label for the heading */
+        font-weight: 600;
+        color: var(--primary-color);
+        margin-right: 1rem;
+        text-align: left;
+    }
+    
+    .speaker-col, .event-col, .time-col {
+        width: auto !important;
+    }
+
+    /* --- Work Tables & Speakers --- */
+    .work-tables-grid, .speaker-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Apply styles for screens smaller than 576px (small phones) */
+@media (max-width: 576px) {
+    /* --- General --- */
+    body { font-size: 15px; }
+    .container { padding: 0 1.5rem; }
+
+    /* --- Hero Section --- */
+    #hero h1 { font-size: 2rem; }
+    #hero h2 { font-size: 1.1rem; }
+    #hero .date { font-size: 0.9rem; padding: 0.5rem 1.5rem; }
+    .country-flags img { height: 24px; }
+
+    /* --- Sections --- */
+    section { padding: 4rem 0; }
+    .section-header h2 { font-size: 2rem; }
+    .section-header p { font-size: 1rem; }
+
+    /* --- About Section --- */
+    .about-content { flex-direction: column; }
+    .about-text, .about-map { flex: 1 1 100%; }
+    .about-map { margin-top: 2rem; }
+
+    /* --- Speakers --- */
+    .speaker-grid {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: 1rem;
+    }
+    .speaker-card h4 { font-size: 0.9rem; }
+
+    /* --- Themes --- */
+    .theme-cards {
+        grid-template-columns: 1fr;
+    }
+
+    /* --- Tabs --- */
+    .tabs {
+        flex-direction: column;
+    }
+    .tab-link {
+        margin-bottom: 0.5rem;
+        width: 100%;
+    }
+
+    /* --- Pricing --- */
+    .pricing-grid { grid-template-columns: 1fr; }
+    .pricing-card.featured { transform: scale(1); }
+
+    /* --- Logos --- */
+    .organizer-logos { flex-direction: column; gap: 2rem; }
+}
