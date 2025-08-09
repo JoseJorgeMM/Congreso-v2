@@ -549,20 +549,41 @@
 
             makeTablesResponsive();
 
-            // --- Inicializar Stacktable en móviles ---
+            // --- Inicializar pestañas del programa (mostrar solo Day1 al cargar) ---
             try {
-                if (window.matchMedia && window.matchMedia('(max-width: 768px)').matches && window.jQuery && $.fn.stacktable) {
-                    $('.schedule-table').each(function(){
-                        const $t = $(this);
-                        if (!$t.data('stacked')) {
-                            $t.stacktable({ myClass: 'stacktable small-only' });
-                            $t.data('stacked', true);
-                        }
-                    });
+                const tabContents = document.getElementsByClassName('tab-content');
+                for (let i = 0; i < tabContents.length; i++) {
+                    tabContents[i].style.display = 'none';
                 }
-            } catch (e) {
-                console.warn('Stacktable init warning:', e);
+                const day1 = document.getElementById('Day1');
+                if (day1) day1.style.display = 'block';
+                const tabLinks = document.getElementsByClassName('tab-link');
+                for (let i = 0; i < tabLinks.length; i++) {
+                    tabLinks[i].className = tabLinks[i].className.replace(' active', '');
+                }
+                if (tabLinks.length > 0) tabLinks[0].className += ' active';
+            } catch(e) { console.warn('Tabs init warning:', e); }
+
+            // --- Inicializar Stacktable SOLO en el tab activo ---
+            function initStackTablesIn(container) {
+                try {
+                    if (!(window.matchMedia && window.matchMedia('(max-width: 768px)').matches && window.jQuery && $.fn.stacktable)) return;
+                    const $container = $(container);
+                    // Eliminar versiones apiladas previas dentro del contenedor para evitar duplicados
+                    $container.find('.stacktable.small-only').remove();
+                    // Generar versiones apiladas solo para las tablas de este contenedor
+                    $container.find('.schedule-table').each(function(){
+                        const $t = $(this);
+                        $t.stacktable({ myClass: 'stacktable small-only' });
+                    });
+                } catch(e) {
+                    console.warn('Stacktable scoped init warning:', e);
+                }
             }
+
+            // Inicializar para Day1 al cargar
+            const day1El = document.getElementById('Day1');
+            if (day1El) initStackTablesIn(day1El);
 
             // --- Script para el menú móvil ---
             const mobileMenuButton = document.getElementById('mobile-menu-button');
@@ -598,8 +619,17 @@
             for (i = 0; i < tablinks.length; i++) {
                 tablinks[i].className = tablinks[i].className.replace(" active", "");
             }
-            document.getElementById(dayName).style.display = "block";
-            evt.currentTarget.className += " active";
+            var target = document.getElementById(dayName);
+            if (target) {
+                target.style.display = "block";
+                // Re-inicializar Stacktable solo dentro del tab activo para evitar fugas de contenido
+                if (typeof initStackTablesIn === 'function') {
+                    initStackTablesIn(target);
+                }
+            }
+            if (evt && evt.currentTarget) {
+                evt.currentTarget.className += " active";
+            }
         }
     </script>
 </body>
