@@ -620,11 +620,34 @@
                     toggleMenu();
                 });
 
-                // Cerrar menú al elegir un enlace
+                // Cerrar menú y navegar al hacer clic en enlaces
                 mainNav.querySelectorAll('a').forEach(a => {
-                    a.addEventListener('click', () => {
-                        if (mainNav.classList.contains('active')) {
-                            toggleMenu(false);
+                    a.addEventListener('click', (e) => {
+                        const href = a.getAttribute('href') || '';
+                        const isHash = href.startsWith('#');
+                        if (isHash) {
+                            // Navegación interna con compensación del header
+                            e.preventDefault();
+                            const id = href.slice(1);
+                            const target = document.getElementById(id);
+                            const offset = headerEl ? headerEl.offsetHeight + 8 : 0;
+                            if (mainNav.classList.contains('active')) {
+                                toggleMenu(false);
+                            }
+                            if (target) {
+                                const y = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                                // Pequeño delay para permitir cerrar el menú antes de hacer scroll
+                                setTimeout(() => {
+                                    window.scrollTo({ top: y, behavior: 'smooth' });
+                                    // Actualizar la URL sin recargar
+                                    history.pushState(null, '', '#' + id);
+                                }, 60);
+                            }
+                        } else {
+                            // Enlaces externos: solo cierra el menú y deja continuar
+                            if (mainNav.classList.contains('active')) {
+                                toggleMenu(false);
+                            }
                         }
                     });
                 });
