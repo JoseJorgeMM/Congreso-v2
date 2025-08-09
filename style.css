@@ -206,6 +206,24 @@ body {
 }
 
 
+.country-flags {
+    margin-top: 1.5rem;
+    margin-bottom: 2.5rem; /* Add some space before the button */
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.country-flags span {
+    font-size: 2.5rem;
+    transition: transform 0.3s ease;
+    cursor: default; /* Keep default cursor */
+}
+
+.country-flags span:hover {
+    transform: scale(1.2);
+}
+
 /* --- General Section Styling --- */
 section { padding: 5rem 0; }
 section h2 {
