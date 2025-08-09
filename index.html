@@ -125,26 +125,8 @@
                         <p>Exploración de estrategias, tecnologías y pedagogías para una gestión educativa efectiva en entornos virtuales y mixtos.</p>
                     </div>
                 </div>
-                <div class="speakers-toggle">
-                    <button id="speakersToggleBtn" class="speakers-toggle-btn" aria-expanded="false" aria-controls="speakers" type="button">
-                        Ver todos los ponentes
-                    </button>
-                </div>
             </div>
         </section>
-        <script>
-            (function() {
-                const grid = document.querySelector('#speakers .speaker-grid');
-                const btn = document.getElementById('speakersToggleBtn');
-                if (!grid || !btn) return;
-                btn.addEventListener('click', function() {
-                    const collapsed = grid.classList.toggle('is-collapsed');
-                    const expanded = !collapsed;
-                    btn.setAttribute('aria-expanded', String(expanded));
-                    btn.textContent = expanded ? 'Ver menos ponentes' : 'Ver todos los ponentes';
-                });
-            })();
-        </script>
 
         <section id="speakers" class="alternate-bg">
             <div class="container">
@@ -429,8 +411,26 @@
                         </div>
                     </div>
                 </div>
+                <div class="speakers-toggle">
+                    <button id="speakersToggleBtn" class="speakers-toggle-btn" aria-expanded="false" aria-controls="speakers" type="button">
+                        Ver todos los ponentes
+                    </button>
+                </div>
             </div>
         </section>
+        <script>
+            (function() {
+                const grid = document.querySelector('#speakers .speaker-grid');
+                const btn = document.getElementById('speakersToggleBtn');
+                if (!grid || !btn) return;
+                btn.addEventListener('click', function() {
+                    const collapsed = grid.classList.toggle('is-collapsed');
+                    const expanded = !collapsed;
+                    btn.setAttribute('aria-expanded', String(expanded));
+                    btn.textContent = expanded ? 'Ver menos ponentes' : 'Ver todos los ponentes';
+                });
+            })();
+        </script>
         
         <section id="schedule" class="container">
             <h2 class="hidden-element">Programa del Evento</h2>
