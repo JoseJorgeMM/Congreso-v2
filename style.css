@@ -730,6 +730,85 @@ section h2::after {
     }
 }
 
+/* --- Footer (Modern) --- */
+.site-footer {
+    background: linear-gradient(135deg, #0b3a7e 0%, #0a2b59 100%);
+    color: #e6eef7;
+    padding: 3.5rem 0 1.2rem;
+}
+
+.site-footer a { color: #ffcf66; text-decoration: none; }
+.site-footer a:hover { color: #ffffff; }
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+.footer-col h4 {
+    margin: 0 0 1rem 0;
+    font-family: var(--font-heading);
+    color: #ffffff;
+}
+
+.footer-title {
+    margin: 0 0 0.75rem 0;
+    font-size: 1.15rem;
+    color: #ffffff;
+}
+
+.footer-brand p { margin: 0 0 1rem 0; opacity: 0.9; }
+
+.brand-logos { display: flex; gap: 0.75rem; align-items: center; }
+.brand-logos img { height: 36px; width: auto; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.25)); }
+
+.footer-links, .footer-contact {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.footer-links li { margin: 0.4rem 0; }
+.footer-links a { font-weight: 600; }
+
+.footer-contact li { margin: 0.5rem 0; display: flex; align-items: center; gap: 0.6rem; }
+.footer-contact i { color: var(--secondary-color); }
+
+.footer-social { margin-top: 0.75rem; display: flex; gap: 0.6rem; }
+.footer-social a {
+    width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.25);
+    color: #ffffff;
+    transition: all 0.25s ease;
+}
+.footer-social a:hover {
+    background: var(--secondary-color);
+    color: #111;
+    border-color: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.15);
+    margin-top: 2.2rem;
+    padding-top: 1rem;
+    text-align: center;
+    font-size: 0.95rem;
+    color: #d6deea;
+}
+
+/* Footer responsive */
+@media (max-width: 992px) {
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 576px) {
+    .footer-grid { grid-template-columns: 1fr; }
+    .brand-logos { flex-wrap: wrap; }
+}
+
 .sponsor-list-container {
     margin-top: 3rem;
 }
