@@ -430,8 +430,8 @@ section h2::after {
 
 .speaker-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 0.6rem;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 0.5rem;
 }
 
 /* Show only first 5 when collapsed */
@@ -441,23 +441,21 @@ section h2::after {
 
 .speaker-card {
     position: relative;
-    background: var(--white-color);
-    border: 1px solid #eee;
+    background: transparent;
+    border: none;
     border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.06);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    overflow: visible;
+    box-shadow: none;
+    transition: transform 0.15s ease;
 }
 
-.speaker-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 18px rgba(0,0,0,0.12);
-}
+.speaker-card:hover { transform: translateY(-2px); }
 
 .speaker-photo {
-    width: 100%;
-    aspect-ratio: 1 / 1; /* Square container */
+    width: 84px;
+    height: 84px;
     overflow: hidden;
+    margin: 0.1rem auto 0;
 }
 
 .speaker-photo img {
@@ -471,13 +469,13 @@ section h2::after {
 }
 
 .speaker-card:hover .speaker-photo img {
-    transform: scale(1.03);
+    transform: scale(1.02);
     filter: grayscale(0%);
 }
 
 .speaker-info {
     position: static;
-    padding: 0.45rem 0.55rem 0.6rem;
+    padding: 0.35rem 0.4rem 0.45rem;
     background: transparent;
     color: var(--text-color);
     text-align: center;
@@ -485,18 +483,23 @@ section h2::after {
 
 .speaker-info h4 {
     font-family: var(--font-heading);
-    font-size: 0.85rem;
-    line-height: 1.2;
+    font-size: 0.8rem;
+    line-height: 1.15;
     color: var(--primary-color);
-    margin: 0.15rem 0 0.08rem 0;
+    margin: 0.12rem 0 0.06rem 0;
     font-weight: 700;
     word-break: break-word;
+    line-clamp: 2;               /* Standard property for wider support */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 .speaker-info p {
     color: #666;
     margin: 0;
-    font-size: 0.7rem;
+    font-size: 0.64rem;
     font-style: normal;
 }
 
@@ -522,7 +525,7 @@ section h2::after {
 /* Slightly denser layout on very wide screens */
 @media (min-width: 1400px) {
     .speaker-grid {
-        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
     }
 }
 
