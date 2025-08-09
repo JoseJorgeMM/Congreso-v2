@@ -214,14 +214,17 @@ body {
     gap: 1rem;
 }
 
-.country-flags span {
-    font-size: 2.5rem;
-    transition: transform 0.3s ease;
-    cursor: default; /* Keep default cursor */
+.country-flags img {
+    height: 30px; /* Adjust height for small flags */
+    width: auto;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.country-flags span:hover {
-    transform: scale(1.2);
+.country-flags img:hover {
+    transform: scale(1.15) translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
 /* --- General Section Styling --- */
