@@ -34,11 +34,13 @@
                 </ul>
             </nav>
             <a href="https://forms.gle/K5GGF5Hsps6xxXDp7" target="_blank" class="cta-button header-cta">Inscríbete</a>
-            <button id="mobile-menu-button" class="mobile-menu-button" type="button" aria-label="Abrir menú de navegación">
+            <button id="mobile-menu-button" class="mobile-menu-button" type="button" aria-label="Abrir menú de navegación" onclick="(function(){var nav=document.getElementById('main-nav');if(!nav)return;var open=nav.classList.toggle('active');nav.style.display=open?'block':'none';document.body.style.overflow=open?'hidden':'';var btn=document.getElementById('mobile-menu-button');if(btn)btn.setAttribute('aria-expanded', String(open));})();">
                 <i class="fa-solid fa-bars"></i>
             </button>
         </div>
     </header>
+    <!-- Backdrop para menú móvil -->
+    <div id="nav-backdrop" aria-hidden="true"></div>
 
     <main>
             <main>
@@ -588,31 +590,56 @@
             // --- Script para el menú móvil ---
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mainNav = document.getElementById('main-nav');
+            const headerEl = document.getElementById('main-header');
+            const navBackdrop = document.getElementById('nav-backdrop');
 
             if (mobileMenuButton && mainNav) {
                 // Atributos de accesibilidad
                 mobileMenuButton.setAttribute('aria-controls', 'main-nav');
                 mobileMenuButton.setAttribute('aria-expanded', 'false');
 
+                const toggleMenu = (forceState) => {
+                    const willOpen = typeof forceState === 'boolean' ? forceState : !mainNav.classList.contains('active');
+                    if (willOpen) {
+                        mainNav.classList.add('active');
+                    } else {
+                        mainNav.classList.remove('active');
+                    }
+                    // Colocar el menú justo debajo del header
+                    const topPx = headerEl ? headerEl.offsetHeight : 0;
+                    mainNav.style.top = topPx + 'px';
+                    // Forzar visualización
+                    mainNav.style.display = willOpen ? 'block' : 'none';
+                    document.body.style.overflow = willOpen ? 'hidden' : '';
+                    document.body.classList.toggle('nav-open', willOpen);
+                    if (navBackdrop) navBackdrop.style.display = willOpen ? 'block' : 'none';
+                    mobileMenuButton.setAttribute('aria-expanded', String(willOpen));
+                };
+
                 mobileMenuButton.addEventListener('click', () => {
-                    const isOpen = mainNav.classList.toggle('active');
-                    // Fallback: forzar display para evitar colisiones de CSS
-                    mainNav.style.display = isOpen ? 'block' : 'none';
-                    document.body.style.overflow = isOpen ? 'hidden' : '';
-                    mobileMenuButton.setAttribute('aria-expanded', String(isOpen));
+                    toggleMenu();
                 });
 
                 // Cerrar menú al elegir un enlace
                 mainNav.querySelectorAll('a').forEach(a => {
                     a.addEventListener('click', () => {
                         if (mainNav.classList.contains('active')) {
-                            mainNav.classList.remove('active');
-                            mainNav.style.display = 'none';
-                            document.body.style.overflow = '';
-                            mobileMenuButton.setAttribute('aria-expanded', 'false');
+                            toggleMenu(false);
                         }
                     });
                 });
+
+            // Cerrar al tocar el backdrop
+            if (navBackdrop) {
+                navBackdrop.addEventListener('click', () => {
+                    if (mainNav && mainNav.classList.contains('active')) {
+                        const btn = document.getElementById('mobile-menu-button');
+                        if (btn) btn.focus();
+                        const evt = new Event('click');
+                        mobileMenuButton.dispatchEvent(evt);
+                    }
+                });
+            }
             }
 
             // --- Script para el header pegajoso ---

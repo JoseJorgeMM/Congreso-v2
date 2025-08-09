@@ -8,6 +8,19 @@
         display: none;
     }
 
+/* Backdrop para menú móvil */
+#nav-backdrop {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.35);
+    z-index: 1500; /* Debajo del menú (2000) pero encima del contenido */
+}
+
+body.nav-open #nav-backdrop {
+    display: block;
+}
+
 /* Stacktable tuning for mobile (reubicado fuera de @media 992px) */
 @media (max-width: 768px) {
     html, body { overflow-x: hidden; }
@@ -68,6 +81,13 @@
 
     /* Show the mobile navigation when active */
     #main-nav.active {
+        display: block !important;
+        /* Depuración visual temporal */
+        outline: 2px dashed #e53935;
+    }
+
+    /* Fallback visual: si el body tiene nav-open, forzar que se vea el menú */
+    body.nav-open #main-nav {
         display: block !important;
     }
 
