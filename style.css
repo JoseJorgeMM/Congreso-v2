@@ -248,85 +248,67 @@ section h2::after {
     margin: 0 auto;
 }
 
-/* --- Thematic Lines Section (Interactive) --- */
+/* --- Thematic Lines Section (Corrected) --- */
 #themes {
     padding: 4rem 0;
     background-color: #f9f9f9;
 }
 
 .themes-container {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
 }
 
 .theme-card-interactive {
-    position: relative;
-    flex: 0 1 120px; /* Start with a smaller base width */
-    min-width: 120px;
-    height: 350px;
     background-color: var(--white-color);
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-    transition: flex 0.5s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.5s ease;
-    cursor: pointer;
+    border-radius: 10px;
+    padding: 2rem;
+    text-align: left;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    border: 1px solid #eee;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .theme-card-interactive:hover {
-    flex: 1 1 400px; /* Expand on hover */
-    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
 .theme-icon-bg {
-    position: absolute;
-    bottom: -20px;
-    right: -20px;
-    font-size: 10rem;
-    color: rgba(0, 0, 0, 0.04);
-    transition: transform 0.5s ease;
-}
-
-.theme-card-interactive:hover .theme-icon-bg {
-    transform: rotate(-15deg) scale(1.1);
-}
-
-.theme-content-interactive {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 1.5rem;
-    color: var(--white-color);
-    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    font-size: 2.5rem;
+    color: var(--accent-color);
+    margin-bottom: 1.5rem;
 }
 
 .theme-content-interactive h4 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: var(--accent-color);
-    margin-bottom: 0.5rem;
+    display: none; /* Hide the number as it's redundant in this layout */
 }
 
 .theme-content-interactive h3 {
-    font-size: 1.4rem;
-    font-weight: 700;
-    line-height: 1.3;
-    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    color: var(--secondary-color);
+    margin-bottom: 0.75rem;
+    line-height: 1.4;
 }
 
 .theme-content-interactive p {
-    opacity: 0;
-    max-height: 0;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     line-height: 1.6;
-    transition: opacity 0.4s ease-in-out, max-height 0.4s ease-in-out;
+    color: var(--text-color);
 }
 
-.theme-card-interactive:hover .theme-content-interactive p {
-    opacity: 1;
-    max-height: 200px; /* Set a max-height to transition to */
+/* Responsive adjustments for the new grid */
+@media (max-width: 992px) {
+    .themes-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .themes-container {
+        grid-template-columns: 1fr;
+    }
 }
 
 
