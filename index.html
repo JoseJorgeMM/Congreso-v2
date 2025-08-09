@@ -590,8 +590,23 @@
             const mainNav = document.getElementById('main-nav');
 
             if (mobileMenuButton && mainNav) {
+                // Atributos de accesibilidad
+                mobileMenuButton.setAttribute('aria-controls', 'main-nav');
+                mobileMenuButton.setAttribute('aria-expanded', 'false');
+
                 mobileMenuButton.addEventListener('click', () => {
-                    mainNav.classList.toggle('active');
+                    const isOpen = mainNav.classList.toggle('active');
+                    mobileMenuButton.setAttribute('aria-expanded', String(isOpen));
+                });
+
+                // Cerrar menú al elegir un enlace
+                mainNav.querySelectorAll('a').forEach(a => {
+                    a.addEventListener('click', () => {
+                        if (mainNav.classList.contains('active')) {
+                            mainNav.classList.remove('active');
+                            mobileMenuButton.setAttribute('aria-expanded', 'false');
+                        }
+                    });
                 });
             }
 
