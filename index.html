@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
         <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="responsive.css">
+    <!-- Stacktable CSS for mobile-friendly tables -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/johnpolacek/stacktable.js/stacktable.css">
 </head>
 <body>
 
@@ -524,6 +526,9 @@
     </footer>
 
     <script src="script.js"></script>
+    <!-- jQuery and Stacktable.js -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/johnpolacek/stacktable.js/stacktable.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             // --- Script para hacer las tablas responsivas ---
@@ -543,6 +548,21 @@
             }
 
             makeTablesResponsive();
+
+            // --- Inicializar Stacktable en móviles ---
+            try {
+                if (window.matchMedia && window.matchMedia('(max-width: 768px)').matches && window.jQuery && $.fn.stacktable) {
+                    $('.schedule-table').each(function(){
+                        const $t = $(this);
+                        if (!$t.data('stacked')) {
+                            $t.stacktable({ myClass: 'stacktable small-only' });
+                            $t.data('stacked', true);
+                        }
+                    });
+                }
+            } catch (e) {
+                console.warn('Stacktable init warning:', e);
+            }
 
             // --- Script para el menú móvil ---
             const mobileMenuButton = document.getElementById('mobile-menu-button');
