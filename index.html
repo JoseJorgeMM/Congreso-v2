@@ -34,7 +34,7 @@
                 </ul>
             </nav>
             <a href="https://forms.gle/K5GGF5Hsps6xxXDp7" target="_blank" class="cta-button header-cta">Inscríbete</a>
-            <button id="mobile-menu-button" class="mobile-menu-button">
+            <button id="mobile-menu-button" class="mobile-menu-button" type="button" aria-label="Abrir menú de navegación">
                 <i class="fa-solid fa-bars"></i>
             </button>
         </div>
@@ -596,6 +596,9 @@
 
                 mobileMenuButton.addEventListener('click', () => {
                     const isOpen = mainNav.classList.toggle('active');
+                    // Fallback: forzar display para evitar colisiones de CSS
+                    mainNav.style.display = isOpen ? 'block' : 'none';
+                    document.body.style.overflow = isOpen ? 'hidden' : '';
                     mobileMenuButton.setAttribute('aria-expanded', String(isOpen));
                 });
 
@@ -604,6 +607,8 @@
                     a.addEventListener('click', () => {
                         if (mainNav.classList.contains('active')) {
                             mainNav.classList.remove('active');
+                            mainNav.style.display = 'none';
+                            document.body.style.overflow = '';
                             mobileMenuButton.setAttribute('aria-expanded', 'false');
                         }
                     });
