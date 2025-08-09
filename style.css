@@ -430,27 +430,28 @@ section h2::after {
 
 .speaker-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 1rem 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 0.75rem;
 }
 
 .speaker-card {
     position: relative;
-    background: transparent;
-    border-radius: 12px;
+    background: var(--white-color);
+    border: 1px solid #eee;
+    border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 6px 14px rgba(0,0,0,0.10);
-    transition: transform 0.22s ease, box-shadow 0.22s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .speaker-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 22px rgba(0,0,0,0.16);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.12);
 }
 
 .speaker-photo {
     width: 100%;
-    aspect-ratio: 3 / 4; /* Keeps cards consistent and efficient in space */
+    aspect-ratio: 1 / 1; /* Square thumbnails for uniformity */
     overflow: hidden;
 }
 
@@ -458,38 +459,46 @@ section h2::after {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.35s ease;
+    transition: transform 0.25s ease, filter 0.25s ease;
     display: block;
+    filter: grayscale(10%);
 }
 
 .speaker-card:hover .speaker-photo img {
-    transform: scale(1.06);
+    transform: scale(1.03);
+    filter: grayscale(0%);
 }
 
 .speaker-info {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    padding: 0.6rem 0.75rem 0.75rem;
-    background: linear-gradient( to top, rgba(0,0,0,0.60) 0%, rgba(0,0,0,0.30) 55%, rgba(0,0,0,0.0) 100% );
-    color: #fff;
-    text-align: left;
+    position: static;
+    padding: 0.5rem 0.6rem 0.7rem;
+    background: transparent;
+    color: var(--text-color);
+    text-align: center;
 }
 
 .speaker-info h4 {
     font-family: var(--font-heading);
-    font-size: 0.95rem;
-    line-height: 1.2;
-    color: #fff;
-    margin: 0 0 0.15rem 0;
+    font-size: 0.9rem;
+    line-height: 1.25;
+    color: var(--primary-color);
+    margin: 0.2rem 0 0.1rem 0;
+    font-weight: 700;
+    word-break: break-word;
 }
 
 .speaker-info p {
-    color: rgba(255,255,255,0.9);
+    color: #666;
     margin: 0;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     font-style: normal;
+}
+
+/* Slightly denser layout on very wide screens */
+@media (min-width: 1400px) {
+    .speaker-grid {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    }
 }
 
 /* --- Schedule Section --- */
