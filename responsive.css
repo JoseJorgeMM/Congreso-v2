@@ -116,9 +116,10 @@ body.nav-open #nav-backdrop {
         display: none; /* Hide the animated underline */
     }
 
-    /* Hide the 'Inscríbete' button from the header */
+    /* Mostrar el botón 'Inscríbete' también en móvil */
     .header-cta {
-        display: none;
+        display: inline-block;
+        margin-left: 0;
     }
 
     /* --- Hero Section --- */
