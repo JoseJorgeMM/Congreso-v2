@@ -428,16 +428,20 @@ section h2::after {
     background-color: var(--light-gray);
 }
 
-.speaker-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-    gap: 0.5rem;
+.speakers-carousel-container {
+    overflow: hidden;
+    position: relative;
 }
 
-/* Show only first 5 when collapsed */
-.speaker-grid.is-collapsed .speaker-card:nth-child(n+6) {
-    display: none;
+.speaker-grid {
+    display: flex;
+    gap: 1.5rem;
+    align-items: stretch;
+    width: max-content;
+    animation: speakers-scroll 40s linear infinite;
 }
+
+.speaker-grid:hover { animation-play-state: paused; }
 
 .speaker-card {
     position: relative;
@@ -471,6 +475,11 @@ section h2::after {
 .speaker-card:hover .speaker-photo img {
     transform: scale(1.02);
     filter: grayscale(0%);
+}
+
+@keyframes speakers-scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
 }
 
 .speaker-info {
