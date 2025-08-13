@@ -131,6 +131,9 @@
             <div class="container">
                 <h2 class="hidden-element">Ponentes</h2>
                 <div class="speakers-carousel-container">
+                    <button class="carousel-arrow arrow-left" id="speakersPrev" aria-label="Desplazar ponentes hacia la izquierda" type="button">
+                        <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+                    </button>
                     <div class="speaker-grid">
                     <div class="speaker-card hidden-element" title="De la necroeducación a la escuela viva: liderazgo directivo para tiempos de crisis.">
                         <div class="speaker-photo">
@@ -241,9 +244,31 @@
                             <p class="talk-title" title="Del 'Habitus' a Una 'Sociología de las Ausencias' en el Quehacer del Directivo">Del 'Habitus' a Una 'Sociología de las Ausencias' en el Quehacer del Directivo</p>
                         </div>
                     </div>
+                    <button class="carousel-arrow arrow-right" id="speakersNext" aria-label="Desplazar ponentes hacia la derecha" type="button">
+                        <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+                    </button>
                 </div>
             </div>
         </section>
+        <script>
+            (function() {
+                const container = document.querySelector('#speakers .speakers-carousel-container');
+                const track = container ? container.querySelector('.speaker-grid') : null;
+                if (!container || !track) return;
+                // Duplicar elementos para efecto infinito
+                const items = Array.from(track.children);
+                items.forEach(node => track.appendChild(node.cloneNode(true)));
+                // Controles de dirección
+                const leftBtn = document.getElementById('speakersPrev');
+                const rightBtn = document.getElementById('speakersNext');
+                const setDirection = (reverse) => {
+                    track.classList.toggle('reverse', !!reverse);
+                    track.style.animationPlayState = 'running';
+                };
+                if (leftBtn) leftBtn.addEventListener('click', () => setDirection(true));
+                if (rightBtn) rightBtn.addEventListener('click', () => setDirection(false));
+            })();
+        </script>
         
         
         <section id="schedule" class="container">
