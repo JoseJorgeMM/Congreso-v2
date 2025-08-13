@@ -481,19 +481,23 @@ section h2::after {
     text-align: center;
 }
 
+/* Allow a bit more width for text to prevent wrapping issues */
+.speaker-card { max-width: 220px; margin-left: auto; margin-right: auto; }
+
 .speaker-info h4 {
     font-family: var(--font-heading);
-    font-size: 0.8rem;
-    line-height: 1.15;
+    font-size: 0.76rem;
+    line-height: 1.2;
     color: var(--primary-color);
     margin: 0.12rem 0 0.06rem 0;
     font-weight: 700;
-    word-break: break-word;
-    line-clamp: 2;               /* Standard property for wider support */
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+    word-break: normal;
+    white-space: normal;
+    display: block;
+    -webkit-line-clamp: unset;
+    line-clamp: unset;
+    -webkit-box-orient: initial;
+    overflow: visible;
 }
 
 .speaker-info p {
