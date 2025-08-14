@@ -443,13 +443,10 @@ section h2::after {
     gap: 1.5rem;
     align-items: stretch;
     width: max-content;
-    animation: speakers-scroll 40s linear infinite;
+    will-change: transform;
     position: relative;
     z-index: 1;
 }
-
-.speaker-grid:hover { animation-play-state: paused; }
-.speaker-grid.reverse { animation-direction: reverse; }
 
 .carousel-arrow {
     position: absolute;
@@ -513,10 +510,7 @@ section h2::after {
     filter: grayscale(0%);
 }
 
-@keyframes speakers-scroll {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-}
+/* Eliminada animación CSS; ahora el movimiento es controlado por JS */
 
 .speaker-info {
     position: static;

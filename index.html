@@ -255,21 +255,38 @@
                 const container = document.querySelector('#speakers .speakers-carousel-container');
                 const track = container ? container.querySelector('.speaker-grid') : null;
                 if (!container || !track) return;
-                // Duplicar elementos para efecto infinito
+
+                // Duplicar elementos para bucle infinito
                 const items = Array.from(track.children);
                 items.forEach(node => track.appendChild(node.cloneNode(true)));
+
+                let positionX = 0;
+                let speed = 0.5; // px por frame aprox
+                let direction = 1; // 1 derecha->izquierda (mueve contenido a la izquierda), -1 izquierda
+                let animId = null;
+
+                const step = () => {
+                    positionX -= speed * direction;
+                    const totalWidth = track.scrollWidth / 2; // porque duplicamos
+                    // Normalizar posición para efecto infinito
+                    if (positionX <= -totalWidth) positionX += totalWidth;
+                    if (positionX >= 0) positionX -= totalWidth;
+                    track.style.transform = `translateX(${positionX}px)`;
+                    animId = requestAnimationFrame(step);
+                };
+
                 // Controles de dirección
                 const leftBtn = document.getElementById('speakersPrev');
                 const rightBtn = document.getElementById('speakersNext');
-                // Asegurar visibilidad de flechas
-                if (rightBtn) rightBtn.style.display = 'inline-flex';
-                if (leftBtn) leftBtn.style.display = 'inline-flex';
-                const setDirection = (reverse) => {
-                    track.classList.toggle('reverse', !!reverse);
-                    track.style.animationPlayState = 'running';
-                };
-                if (leftBtn) leftBtn.addEventListener('click', () => setDirection(true));
-                if (rightBtn) rightBtn.addEventListener('click', () => setDirection(false));
+                if (leftBtn) leftBtn.addEventListener('click', () => { direction = -1; });
+                if (rightBtn) rightBtn.addEventListener('click', () => { direction = 1; });
+
+                // Pausa al hover para facilitar lectura
+                container.addEventListener('mouseenter', () => { cancelAnimationFrame(animId); animId = null; });
+                container.addEventListener('mouseleave', () => { if (!animId) animId = requestAnimationFrame(step); });
+
+                // Iniciar
+                animId = requestAnimationFrame(step);
             })();
         </script>
         
