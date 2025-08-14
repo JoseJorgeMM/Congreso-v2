@@ -479,12 +479,13 @@ section h2::after {
 @media (max-width: 768px) {
     .speakers-carousel-container { padding: 0 28px; }
     .carousel-arrow { width: 36px; height: 36px; }
+    .arrow-right { right: 12px; }
 }
 
 @media (max-width: 480px) {
-    .speakers-carousel-container { padding: 0 22px; }
+    .speakers-carousel-container { padding: 0 30px; }
     .arrow-left { left: 6px; }
-    .arrow-right { right: 6px; }
+    .arrow-right { right: 14px; }
 }
 
 /* ---- Speaker preview modal ---- */
