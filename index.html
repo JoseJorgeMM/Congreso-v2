@@ -278,8 +278,8 @@
                 // Controles de dirección
                 const leftBtn = document.getElementById('speakersPrev');
                 const rightBtn = document.getElementById('speakersNext');
-                if (leftBtn) leftBtn.addEventListener('click', () => { direction = -1; });
-                if (rightBtn) rightBtn.addEventListener('click', () => { direction = 1; });
+                if (leftBtn) leftBtn.addEventListener('click', () => { direction = 1; });
+                if (rightBtn) rightBtn.addEventListener('click', () => { direction = -1; });
 
                 // Pausa al hover para facilitar lectura
                 container.addEventListener('mouseenter', () => { cancelAnimationFrame(animId); animId = null; });
