@@ -476,6 +476,17 @@ section h2::after {
 /* Mostrar flechas siempre y elevar sobre todo */
 #speakers .carousel-arrow { display: inline-flex !important; }
 
+@media (max-width: 768px) {
+    .speakers-carousel-container { padding: 0 28px; }
+    .carousel-arrow { width: 36px; height: 36px; }
+}
+
+@media (max-width: 480px) {
+    .speakers-carousel-container { padding: 0 22px; }
+    .arrow-left { left: 6px; }
+    .arrow-right { right: 6px; }
+}
+
 .speaker-card {
     position: relative;
     background: transparent;
