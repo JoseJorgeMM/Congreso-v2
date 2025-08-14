@@ -261,6 +261,9 @@
                 // Controles de dirección
                 const leftBtn = document.getElementById('speakersPrev');
                 const rightBtn = document.getElementById('speakersNext');
+                // Asegurar visibilidad de flechas
+                if (rightBtn) rightBtn.style.display = 'inline-flex';
+                if (leftBtn) leftBtn.style.display = 'inline-flex';
                 const setDirection = (reverse) => {
                     track.classList.toggle('reverse', !!reverse);
                     track.style.animationPlayState = 'running';

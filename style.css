@@ -432,6 +432,7 @@ section h2::after {
     overflow: hidden;
     position: relative;
     padding: 0 44px; /* espacio para las flechas a ambos lados */
+    width: 100%;
 }
 
 /* Asegura que las flechas siempre sean visibles sobre cualquier fondo */
@@ -473,7 +474,10 @@ section h2::after {
 .carousel-arrow:hover { transform: translateY(-50%) scale(1.05); box-shadow: 0 10px 28px rgba(13,71,161,0.35); }
 .carousel-arrow:active { transform: translateY(-50%) scale(0.98); }
 .arrow-left { left: 8px; }
-.arrow-right { right: 8px; display: inline-flex; }
+.arrow-right { right: 8px; }
+
+/* Mostrar flechas siempre y elevar sobre todo */
+#speakers .carousel-arrow { display: inline-flex !important; }
 
 .speaker-card {
     position: relative;
