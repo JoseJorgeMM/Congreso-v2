@@ -484,7 +484,7 @@ section h2::after {
 
 @media (max-width: 480px) {
     .speakers-carousel-container { padding: 0 34px; }
-    .arrow-left { left: 4px; }
+    .arrow-left { left: 2px; }
     .arrow-right { right: 50px; }
 }
 
