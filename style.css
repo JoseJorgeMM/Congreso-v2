@@ -596,7 +596,7 @@ section h2::after {
     white-space: normal;
     display: block;
     -webkit-line-clamp: unset;
-    line-clamp: unset;
+    line-clamp: unset; /* standard */
     -webkit-box-orient: initial;
     overflow: visible;
 }
@@ -852,7 +852,7 @@ section h2::after {
 .logo-carousel {
     display: flex;
     width: fit-content; /* Ancho basado en el contenido */
-    animation: scroll 25s linear infinite; /* Reducido de 40s a 25s para mayor velocidad */
+    animation: scroll 16s linear infinite; /* Acelerado */
 }
 
 .logo-carousel:hover {
