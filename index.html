@@ -250,6 +250,22 @@
                 </div>
             </div>
         </section>
+        <!-- Speaker preview overlay -->
+        <div id="speakerPreview" class="speaker-preview" aria-hidden="true">
+            <div class="preview-backdrop" data-preview-close="true"></div>
+            <div class="preview-card" role="dialog" aria-modal="true" aria-labelledby="previewName">
+                <button class="preview-close" type="button" aria-label="Cerrar previsualización" data-preview-close="true">✕</button>
+                <div class="preview-content">
+                    <div class="preview-photo">
+                        <img src="" alt="" id="previewImg">
+                    </div>
+                    <div class="preview-info">
+                        <h4 id="previewName"></h4>
+                        <p class="preview-talk" id="previewTalk"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
         <script>
             (function() {
                 const container = document.querySelector('#speakers .speakers-carousel-container');
@@ -275,22 +291,70 @@
                     animId = requestAnimationFrame(step);
                 };
 
+                const pauseCarousel = () => { if (animId) { cancelAnimationFrame(animId); animId = null; } };
+                const resumeCarousel = () => { if (!animId) animId = requestAnimationFrame(step); };
+
                 // Controles de dirección (click y touch)
                 const leftBtn = document.getElementById('speakersPrev');
                 const rightBtn = document.getElementById('speakersNext');
-                const onLeft = (e) => { e.preventDefault(); direction = 1; if (!animId) animId = requestAnimationFrame(step); };
-                const onRight = (e) => { e.preventDefault(); direction = -1; if (!animId) animId = requestAnimationFrame(step); };
+                const onLeft = (e) => { e.preventDefault(); direction = 1; resumeCarousel(); };
+                const onRight = (e) => { e.preventDefault(); direction = -1; resumeCarousel(); };
                 if (leftBtn) { leftBtn.addEventListener('click', onLeft); leftBtn.addEventListener('pointerdown', onLeft); }
                 if (rightBtn) { rightBtn.addEventListener('click', onRight); rightBtn.addEventListener('pointerdown', onRight); }
 
                 // Pausa al hover SOLO en dispositivos con hover (desktop)
                 if (window.matchMedia && window.matchMedia('(hover: hover)').matches) {
-                    container.addEventListener('mouseenter', () => { cancelAnimationFrame(animId); animId = null; });
-                    container.addEventListener('mouseleave', () => { if (!animId) animId = requestAnimationFrame(step); });
+                    container.addEventListener('mouseenter', () => { pauseCarousel(); });
+                    container.addEventListener('mouseleave', () => { resumeCarousel(); });
                 }
 
                 // Iniciar
                 animId = requestAnimationFrame(step);
+
+                // --- Preview (modal deslizante) ---
+                const previewEl = document.getElementById('speakerPreview');
+                const previewNameEl = document.getElementById('previewName');
+                const previewTalkEl = document.getElementById('previewTalk');
+                const previewImgEl = document.getElementById('previewImg');
+
+                const openPreview = (card) => {
+                    if (!card) return;
+                    const nameEl = card.querySelector('h4');
+                    const talkEl = card.querySelector('.talk-title');
+                    const imgEl = card.querySelector('img');
+                    previewNameEl.textContent = nameEl ? nameEl.textContent.trim() : '';
+                    previewTalkEl.textContent = talkEl ? talkEl.textContent.trim() : '';
+                    if (imgEl) {
+                        previewImgEl.src = imgEl.getAttribute('src') || '';
+                        previewImgEl.alt = imgEl.getAttribute('alt') || '';
+                    }
+                    previewEl.classList.add('open');
+                    previewEl.setAttribute('aria-hidden', 'false');
+                    pauseCarousel();
+                };
+
+                const closePreview = () => {
+                    previewEl.classList.remove('open');
+                    previewEl.setAttribute('aria-hidden', 'true');
+                    resumeCarousel();
+                };
+
+                // Delegación de eventos para abrir preview
+                track.addEventListener('click', (ev) => {
+                    const card = ev.target.closest('.speaker-card');
+                    if (!card) return;
+                    ev.preventDefault();
+                    openPreview(card);
+                });
+
+                // Cierre por backdrop o botón
+                previewEl.addEventListener('click', (ev) => {
+                    const wantsClose = ev.target.closest('[data-preview-close]');
+                    if (wantsClose) {
+                        ev.preventDefault();
+                        closePreview();
+                    }
+                });
             })();
         </script>
         
