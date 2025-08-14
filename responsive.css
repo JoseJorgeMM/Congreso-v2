@@ -185,7 +185,7 @@ body.nav-open #nav-backdrop {
     }
 
     /* --- Work Tables & Speakers --- */
-    .work-tables-grid, .speaker-grid {
+    .work-tables-grid {
         grid-template-columns: 1fr;
     }
 }
@@ -213,10 +213,7 @@ body.nav-open #nav-backdrop {
     .about-map { margin-top: 2rem; }
 
     /* --- Speakers --- */
-    .speaker-grid {
-        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-        gap: 1rem;
-    }
+    
     .speaker-card h4 { font-size: 0.9rem; }
 
     /* --- Themes --- */
