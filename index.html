@@ -275,15 +275,19 @@
                     animId = requestAnimationFrame(step);
                 };
 
-                // Controles de dirección
+                // Controles de dirección (click y touch)
                 const leftBtn = document.getElementById('speakersPrev');
                 const rightBtn = document.getElementById('speakersNext');
-                if (leftBtn) leftBtn.addEventListener('click', () => { direction = 1; });
-                if (rightBtn) rightBtn.addEventListener('click', () => { direction = -1; });
+                const onLeft = (e) => { e.preventDefault(); direction = 1; if (!animId) animId = requestAnimationFrame(step); };
+                const onRight = (e) => { e.preventDefault(); direction = -1; if (!animId) animId = requestAnimationFrame(step); };
+                if (leftBtn) { leftBtn.addEventListener('click', onLeft); leftBtn.addEventListener('pointerdown', onLeft); }
+                if (rightBtn) { rightBtn.addEventListener('click', onRight); rightBtn.addEventListener('pointerdown', onRight); }
 
-                // Pausa al hover para facilitar lectura
-                container.addEventListener('mouseenter', () => { cancelAnimationFrame(animId); animId = null; });
-                container.addEventListener('mouseleave', () => { if (!animId) animId = requestAnimationFrame(step); });
+                // Pausa al hover SOLO en dispositivos con hover (desktop)
+                if (window.matchMedia && window.matchMedia('(hover: hover)').matches) {
+                    container.addEventListener('mouseenter', () => { cancelAnimationFrame(animId); animId = null; });
+                    container.addEventListener('mouseleave', () => { if (!animId) animId = requestAnimationFrame(step); });
+                }
 
                 // Iniciar
                 animId = requestAnimationFrame(step);
