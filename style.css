@@ -431,6 +431,7 @@ section h2::after {
 .speakers-carousel-container {
     overflow: hidden;
     position: relative;
+    padding: 0 44px; /* espacio para las flechas a ambos lados */
 }
 
 .speaker-grid {
@@ -439,6 +440,8 @@ section h2::after {
     align-items: stretch;
     width: max-content;
     animation: speakers-scroll 40s linear infinite;
+    position: relative;
+    z-index: 1;
 }
 
 .speaker-grid:hover { animation-play-state: paused; }
@@ -460,7 +463,7 @@ section h2::after {
     cursor: pointer;
     box-shadow: 0 8px 20px rgba(13,71,161,0.25);
     transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
-    z-index: 2;
+    z-index: 5;
 }
 .carousel-arrow:hover { transform: translateY(-50%) scale(1.05); box-shadow: 0 10px 28px rgba(13,71,161,0.35); }
 .carousel-arrow:active { transform: translateY(-50%) scale(0.98); }
