@@ -860,13 +860,13 @@ section h2::after {
 .payment-instructions {
     background-color: #f8f9fa;
     border-left: 4px solid #3498db;
-    padding: 1rem 1.5rem;
+    padding: 1.25rem 1.5rem;
     margin-top: 1.5rem;
     border-radius: 4px;
 }
 
 .payment-instructions p {
-    margin: 0;
+    margin: 0 0 0.75rem 0;
     color: #495057;
     font-size: 1rem;
     line-height: 1.6;
@@ -875,6 +875,32 @@ section h2::after {
 .payment-instructions i {
     color: #3498db;
     margin-right: 0.5rem;
+}
+
+.instructions-list {
+    margin: 0.75rem 0 0 1.25rem;
+    padding: 0;
+    list-style-type: none;
+}
+
+.instructions-list li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #495057;
+    line-height: 1.5;
+}
+
+.instructions-list li:before {
+    content: "•";
+    color: #3498db;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+.mt-2 {
+    margin-top: 1rem;
 }
 
 /* Responsive adjustments */
