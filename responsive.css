@@ -185,9 +185,7 @@ body.nav-open #nav-backdrop {
     }
 
     /* --- Work Tables & Speakers --- */
-    .work-tables-grid {
-        grid-template-columns: 1fr;
-    }
+
 }
 
 /* Apply styles for screens smaller than 576px (small phones) */
