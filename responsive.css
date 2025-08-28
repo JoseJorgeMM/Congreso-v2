@@ -185,6 +185,9 @@ body.nav-open #nav-backdrop {
     }
 
     /* --- Work Tables & Speakers --- */
+    .work-tables-grid {
+        grid-template-columns: 1fr; /* Stack the cards vertically */
+    }
 
 }
 
