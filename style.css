@@ -1050,7 +1050,13 @@ section h2::after {
     flex-shrink: 0;
 }
 
-.detail-value {
+.detail-.ponencia-title {
+    font-style: italic;
+    color: #555;
+    display: block;
+    margin-top: 5px;
+    font-weight: normal;
+}value {
     color: #212529;
     flex-grow: 1;
 }
@@ -1303,7 +1309,6 @@ section h2::after {
     line-height: 1.5;
     font-weight: 600;
     color: #f1f5fb;
-    letter-spacing: 0.3px;
     border-left: 3px solid var(--secondary-color);
     padding-left: 0.6rem;
 }
@@ -1618,3 +1623,11 @@ footer {
 }
 footer p { margin: 0.5rem 0; }
 footer a { color: var(--secondary-color); text-decoration: none; font-weight: 600; }
+
+.ponencia-title {
+    font-style: italic;
+    color: #555;
+    display: block;
+    margin-top: 5px;
+    font-weight: normal;
+}
