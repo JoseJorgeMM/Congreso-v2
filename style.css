@@ -1451,6 +1451,20 @@ section h2::after {
     border-bottom: 1px solid #e0e0e0;
 }
 
+.schedule-table .schedule-afternoon-block {
+    text-align: center;
+    background-color: #fff3e0; /* A lighter shade of the yellow */
+    color: var(--text-color);
+    font-weight: 600;
+    font-size: 1.1em;
+    padding: 0.8rem 1rem;
+    border: 2px solid var(--secondary-color); /* The yellow border */
+    border-bottom: 2px solid var(--secondary-color) !important; /* Ensure bottom border is always there */
+    margin-top: 1rem; /* Add some space above it */
+    margin-bottom: 1rem; /* Add some space below it */
+    border-radius: 8px; /* Slightly rounded corners */
+}
+
 .schedule-table td strong {
     color: var(--primary-color);
 }
@@ -1471,6 +1485,7 @@ section h2::after {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
     flex-direction: column;
+    align-self: start; /* Added to prevent stretching */
 }
 
 .work-table-card:hover {
