@@ -1503,9 +1503,7 @@ section h2::after {
     font-weight: 600;
     color: #4a5568;
     margin-bottom: 1rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+    display: block;
 }
 
 .moderator-info i {
@@ -1523,8 +1521,7 @@ section h2::after {
 .table-schedule li {
     font-size: 0.9em;
     padding: 0.5rem 0;
-    display: flex;
-    gap: 1rem;
+    display: block;
 }
 
 .table-schedule .time {
@@ -1532,6 +1529,8 @@ section h2::after {
     color: var(--primary-color);
     flex-shrink: 0;
     width: 60px;
+    display: block;
+    margin-bottom: 0.5rem;
 }
 
 .table-schedule .details {
