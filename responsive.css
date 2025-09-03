@@ -50,6 +50,24 @@ body.nav-open #nav-backdrop {
         padding: 0.5rem 0.75rem;
         background: #fff;
     }
+
+    .schedule-table .schedule-meta-row {
+        display: block !important;
+        width: 100%;
+        margin-bottom: 1rem;
+        border: 1px solid #eee;
+        border-radius: 8px;
+        padding: 1rem;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    .schedule-table .schedule-meta-row td {
+        display: block !important;
+        width: 100% !important;
+        text-align: center !important;
+        padding: 0.5rem !important;
+        border: none !important;
+    }
 }
 
 /* (removido el bloque 768px aquí; reubicado al final para evitar anidamiento inválido) */
@@ -238,3 +256,4 @@ body.nav-open #nav-backdrop {
     /* --- Logos --- */
     .organizer-logos { flex-direction: column; gap: 2rem; }
 }
+
