@@ -68,6 +68,10 @@ body.nav-open #nav-backdrop {
         padding: 0.5rem !important;
         border: none !important;
     }
+
+    .sponsors-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* (removido el bloque 768px aquí; reubicado al final para evitar anidamiento inválido) */
