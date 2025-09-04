@@ -25,7 +25,31 @@ body.nav-open #nav-backdrop {
 @media (max-width: 768px) {
     html, body { overflow-x: hidden; }
     /* Hide original table, show stacked version */
-    .schedule-table { display: none !important; }
+    .schedule-table:not(.meta-table) { display: none !important; }
+    .meta-table {
+        display: block !important;
+        width: 100%;
+        border: none !important;
+        box-shadow: none !important;
+    }
+
+    .meta-table tr {
+        display: block !important;
+        width: 100%;
+        margin-bottom: 1rem;
+        border: 1px solid #eee;
+        border-radius: 8px;
+        padding: 1rem;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    .meta-table td {
+        display: block !important;
+        width: 100% !important;
+        text-align: center !important;
+        padding: 0.5rem !important;
+        border: none !important;
+    }
     .stacktable.small-only { display: block !important; width: 100%; }
     .stacktable.small-only .st-head-row { background: var(--primary-color); color: var(--white-color); }
     .stacktable.small-only .st-key {
