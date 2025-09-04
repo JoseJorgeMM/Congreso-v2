@@ -1740,6 +1740,19 @@ footer a { color: var(--secondary-color); text-decoration: none; font-weight: 60
     margin-bottom: 1.5rem;
 }
 
+/* Estilo especial para la hora del café */
+.coffee-break {
+    font-size: 1.2em !important;
+    font-weight: bold !important;
+    color: #8B4513 !important; /* Brown color for coffee */
+    background-color: #FFF8DC !important; /* Light cream background */
+    padding: 0.5rem !important;
+    border-radius: 8px !important;
+    display: inline-block !important;
+    text-align: center !important;
+    border: 2px solid #D2691E !important; /* Coffee brown border */
+}
+
 @media (max-width: 1200px) {
     .work-tables-grid {
         grid-template-columns: repeat(2, 1fr);
